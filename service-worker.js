@@ -1,63 +1,51 @@
-const CACHE_NAME = "uscite-cache-v1";
-const URLS_TO_CACHE = [
-  "./", // homepage
-  "./index.html",
-  "./manifest.json",
-  "./modulo-autorizzazione-organizzazione.pdf",
-  "./modulo-autorizzazione-genitori.pdf",
-  "./modulo-pagamento.pdf",
-  "./icon-192.png",
-  "./icon-512.png"
+// Nome del cache
+const CACHE_NAME = 'uscite-cache-v1';
+
+// File da cacheare
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/style.css', // se separi il CSS
+  '/modulo-autorizzazione-organizzazione.pdf',
+  '/modulo-autorizzazione-genitori.pdf',
+  '/modulo-pagamento.pdf',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png'
 ];
 
-// Installazione: mette in cache i file essenziali
-self.addEventListener("install", event => {
+// Installazione del Service Worker e caching dei file
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      console.log("Caching iniziale completato");
-      return cache.addAll(URLS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        console.log('Cache aperta e file aggiunti');
+        return cache.addAll(urlsToCache);
+      })
   );
-  self.skipWaiting();
 });
 
-// Attivazione: pulisce cache vecchie
-self.addEventListener("activate", event => {
+// Attivazione del Service Worker e pulizia vecchie cache
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (key !== CACHE_NAME) {
-            console.log("Cache vecchia rimossa:", key);
-            return caches.delete(key);
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            console.log('Eliminata vecchia cache:', cache);
+            return caches.delete(cache);
           }
         })
-      )
-    )
+      );
+    })
   );
-  self.clients.claim();
 });
 
-// Fetch: serve file dalla cache, se non disponibili li scarica
-self.addEventListener("fetch", event => {
+// Intercetta le richieste e serve dalla cache quando possibile
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) {
-        return response; // Risposta da cache
-      }
-      return fetch(event.request).then(networkResponse => {
-        // Aggiorna la cache con nuove risorse
-        return caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-      }).catch(() => {
-        // Risposta di fallback in caso di totale mancanza rete
-        return new Response(
-          "<h1>Offline</h1><p>Non hai connessione e il file non è stato ancora salvato.</p>",
-          { headers: { "Content-Type": "text/html" } }
-        );
-      });
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
     })
   );
 });
