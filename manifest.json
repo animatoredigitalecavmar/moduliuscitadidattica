@@ -1,11 +1,12 @@
 {
   "name": "Moduli Uscite Didattiche",
-  "short_name": "Uscite",
-  "start_url": ".",
-  "scope": ".",
+  "short_name": "Uscite Didattiche",
+  "description": "Accedi ai moduli per l'organizzazione delle uscite didattiche.",
+  "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#f0f2f5",
   "theme_color": "#4285f4",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icons/icon-192.png",
