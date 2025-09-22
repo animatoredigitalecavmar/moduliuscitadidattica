@@ -1,126 +1,131 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moduli Uscite Didattiche - Istituto Scolastico</title>
-    
-    <link rel="manifest" href="/moduliuscitadidattica/manifest.json">
-    
-    <meta name="theme-color" content="#4285f4">
-    
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            width: 100%;
-            text-align: center;
-        }
-        h1 {
-            color: #1a73e8;
-            margin-bottom: 10px;
-        }
-        p.subtitle {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 30px;
-        }
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        .module-card {
-            background-color: #e8f0fe;
-            padding: 25px;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        }
-        .module-card h3 {
-            color: #1a73e8;
-            margin-top: 0;
-        }
-        .module-card p {
-            font-size: 0.9em;
-            color: #666;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-        .download-btn {
-            display: inline-block;
-            background-color: #4285f4;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            margin-top: 15px;
-        }
-        .download-btn:hover {
-            background-color: #3367d6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moduli Uscite Didattiche - Istituto Scolastico</title>
+
+  <!-- Manifest per PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4285f4">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      color: #1a73e8;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .module-card {
+      background-color: #e8f0fe;
+      padding: 25px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .module-card h3 {
+      color: #1a73e8;
+      margin-top: 0;
+    }
+    .module-card p {
+      font-size: 0.9em;
+      color: #666;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    .download-btn {
+      display: inline-block;
+      background-color: #4285f4;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 15px;
+    }
+    .download-btn:hover {
+      background-color: #3367d6;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Istituto Scolastico 🏫</h1>
-        <p class="subtitle">Accedi ai moduli per l'organizzazione delle uscite didattiche.</p>
+  <div class="container">
+    <h1>Istituto Scolastico 🏫</h1>
+    <p class="subtitle">Accedi ai moduli per l'organizzazione delle uscite didattiche.</p>
 
-        <div class="modules-grid">
-            <div class="module-card">
-                <h3>Autorizzazione per organizzare l'uscita 📝</h3>
-                <p>Questo modulo è necessario per richiedere e ottenere l'approvazione formale dell'istituto per l'organizzazione di un'uscita didattica. Compilalo in ogni sua parte.</p>
-                <a href="modulo-autorizzazione-organizzazione.pdf" class="download-btn" download>Scarica Modulo</a>
-            </div>
+    <div class="modules-grid">
+      <div class="module-card">
+        <h3>Autorizzazione per organizzare l'uscita 📝</h3>
+        <p>Modulo per richiedere l'approvazione dell'istituto. Compilalo in ogni sua parte.</p>
+        <a href="modulo-autorizzazione-organizzazione.pdf" class="download-btn" download>Scarica Modulo</a>
+      </div>
 
-            <div class="module-card">
-                <h3>Autorizzazioni dei genitori 👨‍👩‍👧‍👦</h3>
-                <p>Utilizza questo modulo per raccogliere le firme e le autorizzazioni dei genitori o tutori legali degli studenti che parteciperanno all'uscita.</p>
-                <a href="modulo-autorizzazione-genitori.pdf" class="download-btn" download>Scarica Modulo</a>
-            </div>
+      <div class="module-card">
+        <h3>Autorizzazioni dei genitori 👨‍👩‍👧‍👦</h3>
+        <p>Modulo per raccogliere firme e autorizzazioni dei genitori/tutori degli studenti.</p>
+        <a href="modulo-autorizzazione-genitori.pdf" class="download-btn" download>Scarica Modulo</a>
+      </div>
 
-            <div class="module-card">
-                <h3>Modulo di pagamento 💳</h3>
-                <p>Questo modulo serve a gestire i pagamenti relativi all'uscita, come l'acconto, il saldo, o le spese di viaggio e ingresso. </p>
-                <a href="modulo-pagamento.pdf" class="download-btn" download>Scarica Modulo</a>
-            </div>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.8em; color: #888;">© 2025 - Sviluppato per la gestione scolastica.</p>
+      <div class="module-card">
+        <h3>Modulo di pagamento 💳</h3>
+        <p>Modulo per gestire pagamenti relativi all'uscita: acconto, saldo o spese di viaggio.</p>
+        <a href="modulo-pagamento.pdf" class="download-btn" download>Scarica Modulo</a>
+      </div>
     </div>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/moduliuscitadidattica/service-worker.js').then(function(registration) {
-                    console.log('Service Worker registrato con successo:', registration.scope);
-                }, function(err) {
-                    console.log('Registrazione del Service Worker fallita:', err);
-                });
-            });
-        }
-    </script>
+    <p style="margin-top: 30px; font-size: 0.8em; color: #888;">
+      © 2025 - Sviluppato per la gestione scolastica.
+    </p>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(registration) {
+            console.log('Service Worker registrato con successo:', registration.scope);
+          })
+          .catch(function(err) {
+            console.log('Registrazione del Service Worker fallita:', err);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
