@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moduli Uscite Didattiche - Istituto Scolastico</title>
+    
+    <link rel="manifest" href="/moduliuscitadidattica/manifest.json">
+    
+    <meta name="theme-color" content="#4285f4">
+    
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,7 +66,7 @@
             font-size: 0.9em;
             color: #666;
             line-height: 1.5;
-            flex-grow: 1; /* This makes the description grow and fill the space */
+            flex-grow: 1;
         }
         .download-btn {
             display: inline-block;
@@ -105,5 +110,17 @@
         </div>
         <p style="margin-top: 30px; font-size: 0.8em; color: #888;">© 2025 - Sviluppato per la gestione scolastica.</p>
     </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/moduliuscitadidattica/service-worker.js').then(function(registration) {
+                    console.log('Service Worker registrato con successo:', registration.scope);
+                }, function(err) {
+                    console.log('Registrazione del Service Worker fallita:', err);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
