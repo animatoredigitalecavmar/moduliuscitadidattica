@@ -1,20 +1,19 @@
 {
-  "name": "Moduli Scuola",
-  "short_name": "Moduli",
-  "description": "App per l'accesso ai moduli scolastici.",
-  "lang": "it-IT",
-  "start_url": "/moduliuscitadidattica/",
+  "name": "Moduli Uscite Didattiche",
+  "short_name": "Uscite",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4285f4",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "/moduliuscitadidattica/icon-192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/moduliuscitadidattica/icon-512.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
